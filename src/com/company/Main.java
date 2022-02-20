@@ -34,7 +34,7 @@ public class Main {
                         System.out.println("You cannot play there.");
                     }
                 }
-                gameBoard.spaces[playingSpace].setSpaceValue(whoseTurn);
+                gameBoard.spaces.get(playingSpace).setSpaceValue(whoseTurn);
                 turnNumber++;
             }
 
@@ -52,7 +52,7 @@ public class Main {
     // Checks if a chosen space is valid to play on
     private static boolean checkValidity(Board gameBoard, int playingSpace) {
         if (playingSpace < 9 && playingSpace >= 0)
-            return !gameBoard.spaces[playingSpace].getSpaceValue().equals("X") && !gameBoard.spaces[playingSpace].getSpaceValue().equals("O");
+            return !gameBoard.spaces.get(playingSpace).getSpaceValue().equals("X") && !gameBoard.spaces.get(playingSpace).getSpaceValue().equals("O");
         return false;
     }
 
@@ -73,7 +73,7 @@ public class Main {
         // Let's make it easier to read these values
         String[] spaceValues = new String[9];
         for (int i = 0; i < 9; i++){
-            spaceValues[i] = gameBoard.spaces[i].getSpaceValue();
+            spaceValues[i] = gameBoard.spaces.get(i).getSpaceValue();
         }
         // Check if the rows are matching
         for (int i = 0; i < 9; i += 3){
